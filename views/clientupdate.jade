@@ -1,0 +1,23 @@
+doctype html
+html
+    include inc/header
+    body
+    .navbar.navbar-default.navbar-static-top(role='navigation')
+    div.container
+        form#editForm.form-horizontal(role="form" enctype="multipart/form-data" method='post' action='/clientupdate/doupdate' )
+            .form-group
+                .col-sm-2
+                    input(type="file" name='file')
+
+            label.col-sm-2.control-label(for="submit")
+            .col-sm-5
+                button#btnUpdate.btn.btn-default(type="submit") 提交
+
+        br
+        br
+        br
+        h2 当前版本信息:
+            - each val, key in versionMenifest.groupVersions
+                li #{key} ===> #{val}
+
+    include inc/footer
